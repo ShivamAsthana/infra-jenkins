@@ -22,7 +22,7 @@ resource "aws_internet_gateway" "eks_igw" {
 resource "aws_subnet" "eks_pub_sub_one" {
   vpc_id     = aws_vpc.eks_vpc.id
   cidr_block = "10.0.1.0/24"
-  availability_zone = "us-east-1"
+  availability_zone = "us-east-1a"
   map_public_ip_on_launch = true 
 
   tags = {
@@ -44,7 +44,7 @@ resource "aws_subnet" "eks_pub_sub_two" {
 resource "aws_subnet" "eks_priv_sub_one" {
   vpc_id     = aws_vpc.eks_vpc.id
   cidr_block = "10.0.3.0/24"
-  availability_zone = "us-east-2a"
+  availability_zone = "us-east-1a"
 
   tags = {
     Name = "private subnet one"
@@ -54,7 +54,7 @@ resource "aws_subnet" "eks_priv_sub_one" {
 resource "aws_subnet" "eks_priv_sub_two" {
   vpc_id     = aws_vpc.eks_vpc.id
   cidr_block = "10.0.4.0/24"
-  availability_zone = "us-east-2b"
+  availability_zone = "us-east-1b"
 
   tags = {
     Name = "priavte subnet two"
